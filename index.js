@@ -29,7 +29,7 @@ app.post('/sendMessage', async (req, res) => {
         subject: 'job offer',
         html: `<b>Message from portfolio site</b><div>name:${name}</div><div>contacts:${contacts}</div><div>message:${message}</div>`
     })
-
+res.send(message, contacts, name)
 })
 app.listen(port, function () {
     console.log('Example app listening !')

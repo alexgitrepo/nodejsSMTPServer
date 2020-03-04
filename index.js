@@ -11,7 +11,7 @@ const smtp_login = process.env.SMTP_LOGIN
 const smtp_password = process.env.SMTP_PASSWORD
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {

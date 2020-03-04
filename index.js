@@ -7,8 +7,8 @@ app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 const port = process.env.PORT
-const smptp_login = precess.env.SMTP_LOGIN
-const smtp_password = precess.env.SMTP_PASSWORD
+const smptp_login = processs.env.SMTP_LOGIN
+const smtp_password = process.env.SMTP_PASSWORD
 
 
 const transporter = nodemailer.createTransport({
@@ -32,5 +32,6 @@ app.post('/sendMessage', async (req, res) => {
     })
 
 })
-app.listen(port, () => {
+app.listen(port, function () {
+    console.log('Example app listening !')
 })

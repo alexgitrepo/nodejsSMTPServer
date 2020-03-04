@@ -12,9 +12,11 @@ const smtp_password = process.env.SMTP_PASSWORD
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
+    port: 465,
+    secure: true,
     auth: {
-        user: smptp_login,
-        pass: smtp_password
+        user: 'smptp_login',
+        pass: 'smtp_password'
     }
 })
 app.get('/', (req, res) => {
@@ -23,13 +25,17 @@ app.get('/', (req, res) => {
 
 app.post('/sendMessage', async (req, res) => {
     let {message, contacts, name} = req.body
-    let info = await transporter.sendMail({
-        from: 'Portfolio Site',
+    try{let info = await transporter.sendMail({
+        from:'weblikeabc@gmail.com',
         to: 'alex.dev4web@gmail.com',
         subject: 'job offer',
         html: `<b>Message from portfolio site</b><div>name:${name}</div><div>contacts:${contacts}</div><div>message:${message}</div>`
     })
-res.send(message, contacts, name)
+        res.send(message, contacts, name)
+    }catch (e) {
+        res.send(e)
+    }
+
 })
 app.listen(port, function () {
     console.log('Example app listening !')

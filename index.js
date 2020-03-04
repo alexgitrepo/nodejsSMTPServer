@@ -11,7 +11,7 @@ const smtp_login = process.env.SMTP_LOGIN
 const smtp_password = process.env.SMTP_PASSWORD
 const refresh_token = process.env.REFRESH_TOKEN
 const client_id = process.env.CLINT_ID
-const client_secret = process.env.CLINT_ID
+const client_secret = process.env.CLIENT_SECRET
 
 const transporter = nodemailer.createTransport({
     service: 'Gmail'

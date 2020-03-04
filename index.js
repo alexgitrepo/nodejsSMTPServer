@@ -18,6 +18,10 @@ const transporter = nodemailer.createTransport({
         pass: smtp_password
     }
 })
+app.get('/', (req, res) => {
+    res.send("Hello")
+})
+
 app.post('/sendMessage', async (req, res) => {
     let {message, contacts, name} = req.body
     let info = await transporter.sendMail({

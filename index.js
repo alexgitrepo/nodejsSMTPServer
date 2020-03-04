@@ -7,7 +7,7 @@ app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 const port = process.env.PORT
-const smptp_login = process.env.SMTP_LOGIN
+const smtp_login = process.env.SMTP_LOGIN
 const smtp_password = process.env.SMTP_PASSWORD
 
 const transporter = nodemailer.createTransport({
@@ -15,8 +15,8 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: 'smptp_login',
-        pass: 'smtp_password'
+        user: smtp_login,
+        pass: smtp_password
     }
 })
 app.get('/', (req, res) => {
